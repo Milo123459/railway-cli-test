@@ -9,7 +9,7 @@ fn main() {
     }
     let test = fs::read_to_string(format!("./tests/{test_to_run}.test")).unwrap();
     let args = test.split(' ').collect::<Vec<&str>>();
-    let v2cmd = Command::new("railway").args(args.clone()).output().unwrap();
+    let v2cmd = Command::new("/usr/local/bin/railway").args(args.clone()).output().unwrap();
     let v3cmd = Command::new("rlwy").args(args.clone()).output().unwrap();
     let v2 = String::from_utf8_lossy(&v2cmd.stdout);
     let v3 = String::from_utf8_lossy(&v3cmd.stdout);
